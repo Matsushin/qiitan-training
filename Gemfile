@@ -20,7 +20,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 
 # Assets
-gem 'webpacker', '~> 3.4'
+gem 'webpacker', '3.5.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

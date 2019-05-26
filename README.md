@@ -39,6 +39,13 @@ $ docker-compose up
 
 JSのコンパイルに多少時間がかかります。数秒まって、http://localhost:3000/ で確認します。
 
+デバッガーを起動する場合は、
+
+```
+$ docker-compose run -p 3000:3000 web bundle exec rails server -b 0.0.0.0
+$ docker-compose run -p 3035:3035 web bundle exec ./bin/webpack-dev-server
+```
+
 ### 終了
 Ctrl+C
 たまにゴミが残るので、  rm tmp/pid/server.pid を削除する必要があるかも
