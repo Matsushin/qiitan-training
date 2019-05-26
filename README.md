@@ -1,24 +1,50 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Railsトレーニングアプリ
 
-Things you may want to cover:
+### Version
+- ruby 2.5.3
+- rails 5.2.3
+- MySQL 5.7.22
 
-* Ruby version
+## 初期設定
 
-* System dependencies
+### インストール
+- [Docker for Mac](https://www.docker.com/docker-mac) or [Docker for Windows](https://docs.docker.com/docker-for-windows/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-* Configuration
+### アプリ初期設定
+```
+$ docker-compose build
+$ docker-compose run web bundle install
+$ docker-compose run web yarn install
+```
 
-* Database creation
+### データベース初期設定
+```
+$ docker-compose run web bundle exec rails db:create
+$ docker-compose run web bundle exec rails db:migrate
+$ docker-compose run web bundle exec rails db:seed
+```
 
-* Database initialization
+## 起動・終了
 
-* How to run the test suite
+### 起動コマンド
 
-* Services (job queues, cache servers, search engines, etc.)
+以下のコマンドで起動します。
 
-* Deployment instructions
+```
+$ docker-compose up
+```
 
-* ...
+JSのコンパイルに多少時間がかかります。数秒まって、http://localhost:3000/ で確認します。
+
+### 終了
+Ctrl+C
+たまにゴミが残るので、  rm tmp/pid/server.pid を削除する必要があるかも
+
+### DBにmigration
+必要なら以下を実行
+```
+$ docker-compose run web bundle exec rails db:migrate
+```
