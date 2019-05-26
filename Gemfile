@@ -14,6 +14,10 @@ gem 'bootsnap', require: false
 gem 'foreman'
 gem 'hamlit-rails'
 gem 'simple_form'
+gem 'ransack'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 
 # Assets
 gem 'webpacker', '~> 3.4'
