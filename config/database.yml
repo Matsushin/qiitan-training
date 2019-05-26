@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: <%= ENV.fetch('DB_HOST', 'db') %>
+  database: qiitan-training
+  port: 3306
+  timeout: 5000
+  charset: utf8
+  collation: utf8_unicode_ci
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: qiitan-training_test
+
+production:
+  <<: *default
