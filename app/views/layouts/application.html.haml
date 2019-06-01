@@ -1,11 +1,18 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = render partial: 'application/head_tag_content'
     %title QiitanTraining
+    %script{src: "https://code.jquery.com/jquery-3.4.1.min.js"}
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_pack_tag    'application', media: 'all'
+    = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
-  %body
-    = yield
+  %body.hold-transition.skin-blue.fixed
+    .wrapper
+      = render partial: 'application/nav_header'
+      .content-wrapper
+        = render partial: 'application/notice_alert'
+        %section.content.container-fluid
+          = yield
+  = yield :javascript_tag

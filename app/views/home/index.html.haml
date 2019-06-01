@@ -1,13 +1,16 @@
-%h1 ホーム
-- if @comments.present?
-  %table.table
-    %tr
-      %th 記事タイトル
-      %th コメント内容
-    - @comments.each do |comment|
-      %tr
-        %td= comment.article.title
-        %td= comment.body
+%h2 ホーム
+.row
+  .col-xs-12
+    .box
+      - if @comments.present?
+        %table.table.table-bordered
+          %tr
+            %th 記事タイトル
+            %th コメント内容
+          - @comments.each do |comment|
+            %tr
+              %td= comment.article.title
+              %td= comment.body
 
-- else
-  %p データはありません
+      - else
+        %p データはありません
