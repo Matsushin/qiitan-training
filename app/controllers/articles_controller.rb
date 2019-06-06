@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to articles_path, notice: '登録しました。'
     else
-      flash[:alert] = '登録に失敗しました。'
+      flash.now[:alert] = '登録に失敗しました。'
       render :new
     end
   end
