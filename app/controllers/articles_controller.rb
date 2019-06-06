@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
 
+  def index
+   @articles = Article.all.order(created_at: :desc)
+  end
+
   def new
     @article = Article.new
   end
@@ -7,8 +11,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to new_article_path, notice: '登録しました。'
+      redirect_to articles_path, notice: '登録しました。'
     else
+      flash[:alert] = '登録に失敗しました。'
       render :new
     end
   end

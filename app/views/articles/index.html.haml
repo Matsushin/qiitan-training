@@ -1,0 +1,26 @@
+%h2 記事一覧
+.row
+  .col-xs-12
+    .box
+      .box-header
+        .pull-right
+          = link_to '記事を追加', new_article_path, class: 'btn btn-primary'
+      .box-body
+        - if @articles.present?
+          %table.table.table.table-striped.table-hover
+            %tr
+              %th タイトル
+              %th 内容
+              %th コメント数
+              %th 作成日
+              %th 更新日
+            - @articles.each do |article|
+              %tr
+                %td= article.title
+                %td= truncate(article.body)
+                %td= article.comments.count
+                %td= l article.created_at
+                %td= l article.updated_at
+
+        - else
+          %p 記事はありません

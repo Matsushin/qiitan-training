@@ -1,13 +1,15 @@
 - if notice.present?
-  .alert.alert-success.alert-dismissible
-    %button.close{type: "button",'data-dismiss': "alert", 'aria-hidden': "true"}
-      ×
-    %i.icon.fa.fa-check
-    = notice
+  .notice-alert
+    .alert.alert-success.alert-dismissible
+      %button.close{type: "button",'data-dismiss': "alert", 'aria-hidden': "true"}
+        ×
+      %i.icon.fa.fa-check
+      = notice
 
 - if alert.present?
-  .alert.alert-danger.alert-dismissible
-    %button.close{type: "button",'data-dismiss': "alert", 'aria-hidden': "true"}
-      ×
-    %i.icon.fa.fa-warning
-    = alert
+  .notice-alert
+    .alert.alert-danger.alert-dismissible
+      %button.close{type: "button",'data-dismiss': "alert", 'aria-hidden': "true"}
+        ×
+      %i.icon.fa.fa-warning
+      = alert
