@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to new_article_path
+      redirect_to new_article_path, notice: '登録しました。'
     else
       render :new
     end
