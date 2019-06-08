@@ -18,6 +18,7 @@ gem 'ransack'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'active_interaction'
 
 # Assets
 gem 'webpacker', '3.5.5'

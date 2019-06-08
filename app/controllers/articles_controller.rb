@@ -9,11 +9,13 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
-    if @article.save
+    inputs = params.fetch(:article, {})
+    outcome = Articles::Create.run(inputs)
+    if outcome.valid?
       redirect_to articles_path, notice: '登録しました。'
     else
-      flash.now[:alert] = '登録に失敗しました。'
+      @article = outcome
+      flash.now[:alert] = "登録に失敗しました。#{@article.errors.full_messages.join('。')}"
       render :new
     end
   end
