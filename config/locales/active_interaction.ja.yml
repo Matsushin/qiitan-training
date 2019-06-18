@@ -1,0 +1,8 @@
+ja:
+  active_interaction:
+    models:
+      articles/create: 記事の登録
+    attributes:
+      articles/create:
+        title: タイトル
+        body: 本文
