@@ -2,7 +2,11 @@ ja:
   active_interaction:
     models:
       articles/create: 記事の登録
+      articles/update: 記事の編集
     attributes:
       articles/create:
+        title: タイトル
+        body: 本文
+      articles/update:
         title: タイトル
         body: 本文

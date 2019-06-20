@@ -25,6 +25,11 @@ Railsトレーニングアプリ
   - 以下のような構成にする
     - app/services/application_service.rb
     - app/services/articles/create.rb
+    
+### 課題④
+- 記事を更新できるようにしよう
+  - 以下のような構成にする
+    - app/services/articles/update.rb
 
 ## 初期設定
 
