@@ -19,6 +19,12 @@ Railsトレーニングアプリ
   - 記事のタイトル、本文を入力して登録できるように
   - タイトルと本文は空入力だとエラーになるように
   - フォームはGemのsimple_formを利用する
+  
+### 課題③
+- gemのactive_interactionを使って記事を登録できるようにしよう
+  - 以下のような構成にする
+    - app/services/application_service.rb
+    - app/services/articles/create.rb
 
 ## 初期設定
 
