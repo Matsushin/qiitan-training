@@ -30,6 +30,11 @@ Railsトレーニングアプリ
 - 記事を更新できるようにしよう
   - 以下のような構成にする
     - app/services/articles/update.rb
+    
+### 課題⑤
+- 記事を削除できるようにしよう
+  - 以下のような構成にする
+    - app/services/articles/delete.rb
 
 ## 初期設定
 
