@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[edit update]
+  before_action :set_article, only: %i[edit update destroy]
 
   def index
    @articles = Article.all.order(created_at: :desc)
@@ -33,6 +33,15 @@ class ArticlesController < ApplicationController
       @article = outcome
       flash.now[:alert] = "更新に失敗しました。\n#{@article.errors.full_messages.to_sentence}"
       render :edit
+    end
+  end
+
+  def destroy
+    outcome = Articles::Delete.run(article: @article)
+    if outcome.valid?
+      redirect_to articles_path, notice: '削除しました'
+    else
+      redirect_to articles_path, alert: "削除に失敗しました。#{outcome.errors.full_messages.join('。')}"
     end
   end
 
