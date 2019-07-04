@@ -2,7 +2,13 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update destroy]
 
   def index
-   @articles = Article.all.order(created_at: :desc)
+   @articles_search = Search::Articles.run(params.fetch(:search_articles, {}))
+   if @articles_search.valid?
+     @articles = @articles_search.result.page(params[:page]).per(5)
+   else
+     flash.now[:alert] = '指定の検索が動作しませんでした。'
+     @articles = Article.all.order(created_at: :desc).page(params[:page])
+   end
   end
 
   def new

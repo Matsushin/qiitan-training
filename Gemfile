@@ -19,6 +19,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'active_interaction'
+gem 'kaminari'
+gem 'enumerize'
 
 # Assets
 gem 'webpacker', '3.5.5'

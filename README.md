@@ -35,6 +35,11 @@ Railsトレーニングアプリ
 - 記事を削除できるようにしよう
   - 以下のような構成にする
     - app/services/articles/delete.rb
+    
+### 課題⑥
+- 記事を検索/並び替えできるようにしよう
+  - 以下のような構成にする
+    - app/services/search/articles.rb
 
 ## 初期設定
 
