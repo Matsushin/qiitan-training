@@ -1,0 +1,11 @@
+- if form_object.order_by != order_by
+  = link_to send(url_method, search_articles: { order_by: order_by, order_direction: :asc }) do
+    %i.fa.fa-sort.fa-lg
+- elsif form_object.order_direction == :asc
+  = link_to send(url_method, search_articles: { order_by: order_by, order_direction: :desc }) do
+    %span{style: 'color:ORANGE'}
+      %i.fa.fa-sort-desc.fa-lg
+- else # form_object.order_direction == :desc
+  = link_to send(url_method, search_articles: { order_by: order_by, order_direction: :asc }) do
+    %span{style: 'color:ORANGE'}
+      %i.fa.fa-sort-asc.fa-lg

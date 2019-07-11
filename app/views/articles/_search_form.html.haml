@@ -1,0 +1,12 @@
+.row
+  = simple_form_for articles_search, url: articles_path, method: :get do |f|
+    - [[:title, '記事タイトル'],
+      [:body, '記事本文'],
+      [:comment_body, 'コメント本文']].each do |(key, name)|
+      .col-xs-4
+        %label= name
+        .input-group
+          = f.text_field key, class: 'form-control'
+          %span.input-group-btn
+            %button.btn.btn-default{ type: 'submit' }
+              %i.fa.fa-search
