@@ -14,30 +14,34 @@
         - if @articles.present?
           %table.table.table.table-striped.table-hover
             %tr
-              %th
+              %th.text-center
+                記事ID
+                = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :id
+              %th.text-center
                 タイトル
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :title
-              %th
+              %th.text-center
                 内容
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :body
-              %th コメント数
-              %th
+              %th.text-center コメント数
+              %th.text-center
                 作成日
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :created_at
-              %th
+              %th.text-center
                 更新日
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :updated_at
               %th
               %th
             - @articles.each do |article|
               %tr
+                %td.text-center= article.id
                 %td= article.title
                 %td= truncate(article.body)
-                %td= article.comments.count
+                %td.text-right= article.comments.count
                 %td= l article.created_at
                 %td= l article.updated_at
-                %td= link_to '編集', edit_article_path(article)
-                %td= link_to '削除', article_path(article), method: :delete, data: { confirm: '本当に削除しますか？' }
+                %td.text-center= link_to '編集', edit_article_path(article)
+                %td.text-center= link_to '削除', article_path(article), method: :delete, data: { confirm: '本当に削除しますか？' }
 
         - else
           %p 記事はありません
