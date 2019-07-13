@@ -32,6 +32,7 @@
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :updated_at
               %th
               %th
+              %th
             - @articles.each do |article|
               %tr
                 %td.text-center= article.id
@@ -41,6 +42,7 @@
                 %td= l article.created_at
                 %td= l article.updated_at
                 %td.text-center= link_to '編集', edit_article_path(article)
+                %td.text-center= link_to '詳細', article_path(article)
                 %td.text-center= link_to '削除', article_path(article), method: :delete, data: { confirm: '本当に削除しますか？' }
 
         - else

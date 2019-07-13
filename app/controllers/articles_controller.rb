@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[edit update destroy]
+  before_action :set_article, only: %i[edit update show destroy]
 
   def index
    @articles_search = Search::Articles.run(params.fetch(:search_articles, {}))
@@ -40,6 +40,9 @@ class ArticlesController < ApplicationController
       flash.now[:alert] = "更新に失敗しました。\n#{@article.errors.full_messages.to_sentence}"
       render :edit
     end
+  end
+
+  def show
   end
 
   def destroy

@@ -1,0 +1,38 @@
+%h2 記事「#{@article.title}」
+.row
+  .col-xs-12
+    .box
+      .box-body
+        %dl.dl-horizontal
+          %dt= Article.human_attribute_name(:id)
+          %dd= @article.id
+          %dt= Article.human_attribute_name(:title)
+          %dd= @article.title
+          %dt= Article.human_attribute_name(:body)
+          %dd= h(simple_format(@article.body))
+          %dt コメント数
+          %dd= @article.comments.count
+          %dt= Article.human_attribute_name(:created_at)
+          %dd= l @article.created_at
+          %dt= Article.human_attribute_name(:updated_at)
+          %dd= l @article.updated_at
+    .box
+      .box-header
+        %h3.box-title コメント一覧
+      .box-body
+        - if @article.comments.present?
+          %table.table.table.table-striped.table-hover
+            %tr
+              %th.text-center= Comment.human_attribute_name(:id)
+              %th.text-center= Comment.human_attribute_name(:body)
+              %th.text-center= Comment.human_attribute_name(:created_at)
+              %th.text-center= Comment.human_attribute_name(:updated_at)
+            - @article.comments.each do |comment|
+              %tr
+                %td.text-center= comment.id
+                %td= h(simple_format(comment.body))
+                %td= l comment.created_at
+                %td= l comment.updated_at
+        - else
+          コメントがありません
+    = link_to '戻る', articles_path, class: 'btn btn-default'
