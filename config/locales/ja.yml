@@ -2,8 +2,16 @@ ja:
   activerecord:
     attributes:
       article:
+        id: ID
         title: タイトル
         body: 本文
+        created_at: 作成日時
+        updated_at: 更新日時
+      comment:
+        id: ID
+        body: 本文
+        created_at: 作成日時
+        updated_at: 更新日時
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -205,9 +213,9 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      long: "%Y/%m/%d %H:%M"
-      short: "%m/%d %H:%M"
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%Y/%m/%d %H:%M"
     pm: 午後
   common:
     flash:
