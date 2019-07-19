@@ -9,7 +9,7 @@
           %dt= Article.human_attribute_name(:title)
           %dd= @article.title
           %dt= Article.human_attribute_name(:body)
-          %dd= h(simple_format(@article.body))
+          %dd= simple_format(h(@article.body))
           %dt コメント数
           %dd= @article.comments.count
           %dt= Article.human_attribute_name(:created_at)
@@ -30,7 +30,7 @@
             - @article.comments.each do |comment|
               %tr
                 %td.text-center= comment.id
-                %td= h(simple_format(comment.body))
+                %td= simple_format(h(comment.body))
                 %td= l comment.created_at
                 %td= l comment.updated_at
         - else
