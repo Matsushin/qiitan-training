@@ -9,15 +9,15 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
-            RAILS_ENV: test
-            DATABASE_HOSTNAME: '127.0.0.1'
-            DATABASE_NAME: qiitan-training
-            DATABASE_USERNAME: root
-            DATABASE_PASSWORD: ''
-            TZ: UTC
+          RAILS_ENV: test
+          DATABASE_HOSTNAME: '127.0.0.1'
+          DATABASE_NAME: qiitan-training
+          DATABASE_USERNAME: root
+          DATABASE_PASSWORD: ''
+          TZ: UTC
       - image: circleci/mysql:5.7-ram
-          environment:
-            TZ: UTC
+        environment:
+          TZ: UTC
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
