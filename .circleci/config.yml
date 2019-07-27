@@ -8,13 +8,23 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.5.3-node-browsers
+        environment:
+            RAILS_ENV: test
+            DATABASE_HOSTNAME: '127.0.0.1'
+            DATABASE_NAME: qiitan-training
+            DATABASE_USERNAME: root
+            DATABASE_PASSWORD: ''
+            TZ: UTC
+      - image: circleci/mysql:5.7-ram
+          environment:
+            TZ: UTC
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/circleci-rails
 
     steps:
       - checkout
@@ -25,7 +35,11 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
+      - run:
+          name: default mysql client install
+          command: |
+            sudo apt update
+            sudo apt-get install default-mysql-client
       - run:
           name: install dependencies
           command: |
