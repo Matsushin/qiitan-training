@@ -10,6 +10,8 @@
           %dd= @article.title
           %dt= Article.human_attribute_name(:body)
           %dd= simple_format(h(@article.body))
+          %dt= Article.human_attribute_name(:user_id)
+          %dd= @article.user.email
           %dt コメント数
           %dd= @article.comments.count
           %dt= Article.human_attribute_name(:created_at)
