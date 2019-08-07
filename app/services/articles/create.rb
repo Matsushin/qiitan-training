@@ -2,6 +2,7 @@ class Articles::Create < ApplicationService
   object :user, default: nil
   string :title, default: ''
   string :body, default: ''
+  file :image
 
   validates :user, presence: true
 

@@ -3,4 +3,8 @@
     = simple_form_for article do |f|
       = f.input :title
       = f.input :body
+      = f.input :image do
+        - if f.object.image.attached?
+          = image_tag f.object.image, height: 100
+        = f.input_field :image, as: :file, accept: 'image/*'
       = f.submit class: 'btn btn-primary'
