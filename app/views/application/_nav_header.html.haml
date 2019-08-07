@@ -1,6 +1,13 @@
 %header.main-header
-  %a.logo{:href => "/admin"}
+  %a.logo{:href => "/"}
     %span.logo-lg
       %b> Qiitan
       Training
   %nav.navbar.navbar-static-top{:role => "navigation"}
+    %a.sidebar-toggle{"data-toggle" => "push-menu", :href => "#", :role => "button"}
+      %span.sr-only Toggle navigation
+    - if user_signed_in?
+      .navbar-custom-menu
+        %ul.nav.navbar-nav
+          %li
+            = link_to current_user.email, root_path

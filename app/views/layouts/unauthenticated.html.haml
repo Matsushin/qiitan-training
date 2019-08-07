@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    = render partial: 'application/head_tag_content'
+    %title QiitanTraining
+    = javascript_pack_tag 'application', media: 'all'
+    = stylesheet_pack_tag 'application', media: 'all'
+    = csrf_meta_tags
+
+  %body.hold-transition.login-page
+    = yield
+
+:javascript
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-yellow',
+      radioClass: 'iradio_square-yellow',
+      increaseArea: '20%'
+    });
+  });

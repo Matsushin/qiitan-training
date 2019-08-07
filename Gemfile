@@ -21,6 +21,9 @@ gem 'font-awesome-sass'
 gem 'active_interaction'
 gem 'kaminari'
 gem 'enumerize'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 # Assets
 gem 'webpacker', '3.5.5'
