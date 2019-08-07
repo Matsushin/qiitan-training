@@ -3,6 +3,7 @@ ja:
     attributes:
       article:
         id: ID
+        user_id: 作成者
         title: タイトル
         body: 本文
         created_at: 作成日時

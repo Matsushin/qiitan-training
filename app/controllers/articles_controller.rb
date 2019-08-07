@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def index
    @articles_search = Search::Articles.run(params.fetch(:search_articles, {}))
    if @articles_search.valid?
-     @articles = @articles_search.result.page(params[:page]).per(5)
+     @articles = @articles_search.result.page(params[:page])
    else
      flash.now[:alert] = '指定の検索が動作しませんでした。'
      @articles = Article.all.order(created_at: :desc).page(params[:page])
@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    inputs = params.fetch(:article, {})
+    inputs = params.fetch(:article, {}).merge(user: current_user)
     outcome = Articles::Create.run(inputs)
     if outcome.valid?
       redirect_to articles_path, notice: '登録しました。'

@@ -6,12 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Article.transaction do
+  # User
+  user = User.new(email: 'admin@sample.com', password: 'password')
+  user.save!
+
   # Article
   5.times do |article_count|
     title = "テスト記事#{article_count + 1}"
     body = "記事内容#{article_count + 1}"
-    article = Article.new(title: title, body: body)
+    article = Article.new(title: title, body: body, user: user)
     article.save!
 
     # Comment

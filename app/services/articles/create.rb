@@ -1,9 +1,9 @@
 class Articles::Create < ApplicationService
+  object :user, default: nil
   string :title, default: ''
   string :body, default: ''
 
-  validates :title, presence: true
-  validates :body, presence: true
+  validates :user, presence: true
 
   def execute
     article = Article.new(inputs)

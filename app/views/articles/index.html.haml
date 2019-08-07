@@ -23,6 +23,8 @@
               %th.text-center
                 内容
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :body
+              %th.text-center
+                = Article.human_attribute_name(:user_id)
               %th.text-center コメント数
               %th.text-center
                 作成日
@@ -38,6 +40,7 @@
                 %td.text-center= article.id
                 %td= article.title
                 %td= truncate(article.body)
+                %td= article.user.email
                 %td.text-right= article.comments.count
                 %td= l article.created_at
                 %td= l article.updated_at
