@@ -12,6 +12,10 @@
           %dd= simple_format(h(@article.body))
           %dt= Article.human_attribute_name(:user_id)
           %dd= @article.user.email
+          %dt= Article.human_attribute_name(:image)
+          %dd
+            - if @article.image.attached?
+              = image_tag @article.image
           %dt コメント数
           %dd= @article.comments.count
           %dt= Article.human_attribute_name(:created_at)
