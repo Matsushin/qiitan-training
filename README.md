@@ -66,7 +66,12 @@ Railsトレーニングアプリ
 - 記事に画像を登録できるようにしよう
   - 記事の登録・更新画面で画像を添付できるように
     - ActiveStorageを利用する
-  - 登録した画像は記事詳細画面で表示する  
+  - 登録した画像は記事詳細画面で表示する 
+  
+### 課題11
+- Rspecが通るようにバリデーションを設定しよう
+  - 以下のコマンドを実行して全て通るように `app/models/article.rb` にバリデーションを追加する
+    - `docker-compose run web bundle exec rspec ./spec/models/article_spec.rb` 
 
 ## 初期設定
 
