@@ -73,6 +73,14 @@ Railsトレーニングアプリ
   - 以下のコマンドを実行して全て通るように `app/models/article.rb` にバリデーションを追加する
     - `docker-compose run web bundle exec rspec ./spec/models/article_spec.rb` 
 
+### 課題12
+- コールバックを設定しよう
+  1. 以下のコマンドを実行して通るように `app/models/article.rb` の `create_comment` メソッドに処理を書く
+    - `docker-compose run web bundle exec rspec ./spec/models/article_spec.rb:149` 
+  2. `articles` テーブルの `str_value` カラムにセットされた値が保管する前に小文字になるようにする
+    - `app/models/article.rb` にコールバックを追加する
+    - `spec/models/article_spec.rb` にテストを追加する
+
 ## 初期設定
 
 ### インストール

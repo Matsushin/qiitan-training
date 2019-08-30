@@ -145,4 +145,21 @@ RSpec.describe Article do
       end
     end
   end
+
+  describe '#create_comment' do
+    let(:article) { build(:article, user: user) }
+    before { article.save }
+    it 'コメントレコードが作成されている' do
+      expect(article.comments.count).to eq 1
+      expect(article.comments.first.body).to eq '記事コメント'
+    end
+  end
+
+  describe '#downcase_str_value' do
+    let(:article) { build(:article, user: user, str_value: 'TEST') }
+    before { article.save }
+    it 'str_valueがtestとなっている' do
+      # TODO: ここにテストコードを書く
+    end
+  end
 end
