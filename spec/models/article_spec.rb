@@ -33,7 +33,7 @@ RSpec.describe Article do
     let(:article) { build(:article, user: user, str_value: 'TEST') }
     before { article.save }
     it 'str_valueがtestとなっている' do
-      # TODO: ここにテストコードを書く
+      expect(article.str_value).to eq 'test'
     end
   end
 end
