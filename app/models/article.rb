@@ -22,7 +22,7 @@ class Article < ApplicationRecord
 
   def before_validation_test
     p '--- before_validation ---'
-    self.range_value = range_value.upcase
+    self.range_value = range_value.upcase if range_value.present?
   end
 
   def after_validation_test
