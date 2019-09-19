@@ -18,6 +18,8 @@
               = image_tag @article.image
           %dt コメント数
           %dd= @article.comments.count
+          %dt タグ
+          %dd= @article.tags.pluck(:name).join(',')
           %dt= Article.human_attribute_name(:created_at)
           %dd= l @article.created_at
           %dt= Article.human_attribute_name(:updated_at)

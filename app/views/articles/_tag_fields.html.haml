@@ -1,0 +1,10 @@
+.nested-fields
+  .row.form-group
+    .col-sm-5
+      = f.text_field :name, class: 'form-control'
+    .col-sm-2
+      = f.number_field :display_order, class: 'form-control'
+    .col-sm-5
+      = link_to_remove_association f do
+        %button.btn.btn-default
+          %i.fa.fa-trash
