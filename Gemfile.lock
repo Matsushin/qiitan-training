@@ -1,3 +1,8 @@
+PATH
+  remote: vendor/gems/cocoon-1.2.11
+  specs:
+    cocoon (1.2.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -322,6 +327,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chromedriver-helper
+  cocoon!
   coffee-rails (~> 4.2)
   database_cleaner
   devise
