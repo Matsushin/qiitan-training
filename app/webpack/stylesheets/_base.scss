@@ -1,3 +1,23 @@
 .notice-alert {
   padding: 15px 15px 0 15px;
 }
+
+.simple_form {
+  .nested-fields {
+    .form-group {
+      padding-right: 40px;
+      & ~ .remove_fields {
+        font-size: 2rem;
+      }
+    }
+  }
+  .links {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-right: 22px;
+  }
+  .actions {
+    margin-top: 20px;
+    margin-right: 56px;
+  }
+}
