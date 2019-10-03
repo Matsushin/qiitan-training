@@ -26,7 +26,6 @@
               %th.text-center
                 = Article.human_attribute_name(:user_id)
               %th.text-center コメント数
-              %th タグ
               %th.text-center
                 作成日
                 = render 'order_link', form_object: @articles_search, url_method: :articles_path, order_by: :created_at
@@ -43,7 +42,6 @@
                 %td= truncate(article.body)
                 %td= article.user.email
                 %td.text-right= article.comments.count
-                %td= article.tags.pluck(:name).join(',')
                 %td= l article.created_at
                 %td= l article.updated_at
                 %td.text-center= link_to '編集', edit_article_path(article)

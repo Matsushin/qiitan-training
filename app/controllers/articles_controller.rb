@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @article.tags.build
   end
 
   def create
@@ -29,7 +28,6 @@ class ArticlesController < ApplicationController
   end
   
   def edit
-    @article.tags.build if @article.tags.empty?
   end
   
   def update
@@ -63,6 +61,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body, :image, tags_attributes: %i[id name display_order _destroy])
+    params.require(:article).permit(:title, :body, :image)
   end
 end

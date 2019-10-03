@@ -7,23 +7,4 @@
         - if f.object.image.attached?
           = image_tag f.object.image, height: 100
         = f.input_field :image, as: :file, accept: 'image/*'
-      .form-group
-        %label タグ
-        .row
-          .col-sm-5
-            %span 名前
-          .col-sm-2
-            %span 順番
-          .col-sm-5
-            %span
-      = f.simple_fields_for :tags do | g |
-        = g.input :id, as: :hidden
-        = render 'articles/tag_fields', f: g
-      .links
-        = link_to_add_association f, :tags, partial: 'articles/tag_fields' do
-          %button.btn.btn-info
-            %i.fa.fa-plus-circle
-              %strong
-                %small タグ追加
-      .actions
-        = f.submit class: 'btn btn-primary'
+      = f.submit class: 'btn btn-primary'
