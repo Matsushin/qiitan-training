@@ -3,7 +3,6 @@ class Articles::Create < ApplicationService
   string :title, default: ''
   string :body, default: ''
   file :image, default: nil
-  hash :tags_attributes, strip: false
 
   validates :user, presence: true
 
