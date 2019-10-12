@@ -5,6 +5,8 @@ class Article < ApplicationRecord
 
   belongs_to :user
 
+  delegate :email, to: :user, prefix: :author
+
   validates :title, presence: true
   validates :body, presence: true
   validate :after_today
@@ -49,5 +51,17 @@ class Article < ApplicationRecord
 
   def create_comment
     # TODO: ここでコメントレコードを作る
+  end
+
+  def short_body
+    body.truncate(20)
+  end
+
+  def comment_count
+    comments.count
+  end
+
+  def created_on
+    created_at.to_date
   end
 end
