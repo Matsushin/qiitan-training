@@ -86,6 +86,11 @@ Railsトレーニングアプリ
   - 記事登録・編集画面からタグを複数まとめて登録できるように
     - gemのcocoonの機能を利用する
   - 登録したタグは記事一覧・詳細画面で表示する
+  
+### 課題14
+- 様々なRubyのメソッドを使ってみよう
+  - 以下のコマンドを実行して全て通るように `app/helpers/practice_helper.rb` にコードを追加する
+    - `docker-compose run web bundle exec rspec ./spec/helpers/practice_helper_spec.rb`
 
 ## 初期設定
 
