@@ -101,6 +101,36 @@ Railsトレーニングアプリ
   - その他
     - 1ページ10件取得するように。パラメータとしてpage=2の場合は2ページ目の情報が取得できるように
 
+### 課題16
+- 記事登録、参照、更新、削除APIを実装しよう
+  - 以下のようなコマンド例でAPIが利用できるように
+  
+作成  
+```
+$ curl -H "Accept: application/json" -H "Content-Type: application/json" \
+-X POST -d '{"article": {"title": "記事タイトル", "body": "記事本文", "user_id": 1} }' \
+http://localhost:3000/api/v1/articles | jq .
+```
+
+詳細
+```
+$ curl http://localhost:3000/api/v1/articles/1 | jq .
+```
+
+更新
+```
+$ curl -H "Accept: application/json" -H "Content-Type: application/json" \
+-X PATCH -d '{"article": {"title": "新記事タイトル", "body": "新記事本文"} }' \
+http://localhost:3000/api/v1/articles/1 | jq .
+```
+
+削除
+```
+$ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
+```
+ 
+
+
 ## 初期設定
 
 ### インストール
