@@ -54,4 +54,13 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+end
+
+# group :production do
+#   gem 'unicorn'
+# end
