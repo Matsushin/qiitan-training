@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :articles
+
+  namespace :front do
+    resources :articles, only: %i(index)
+  end
 end
