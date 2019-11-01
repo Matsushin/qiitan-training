@@ -108,7 +108,7 @@ Railsトレーニングアプリ
 作成  
 ```
 $ curl -H "Accept: application/json" -H "Content-Type: application/json" \
--X POST -d '{"article": {"title": "記事タイトル", "body": "記事本文", "user_id": 1} }' \
+-X POST -d '{"article": {"title": "記事タイトル", "body": "記事本文", "user_id": 1, "tags_attributes": {"0": {"name": "タグ名", "display_order": "1", "_destroy": "false"}}} }' \
 http://localhost:3000/api/v1/articles | jq .
 ```
 
@@ -120,7 +120,7 @@ $ curl http://localhost:3000/api/v1/articles/1 | jq .
 更新
 ```
 $ curl -H "Accept: application/json" -H "Content-Type: application/json" \
--X PATCH -d '{"article": {"title": "新記事タイトル", "body": "新記事本文"} }' \
+-X PATCH -d '{"article": {"title": "新記事タイトル", "body": "新記事本文", "tags_attributes": {"0": {"name": "タグ名", "display_order": "1", "_destroy": "false"}}} }' \
 http://localhost:3000/api/v1/articles/1 | jq .
 ```
 
