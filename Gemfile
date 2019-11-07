@@ -25,6 +25,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'cocoon', path: File.join(File.dirname(__FILE__), '/vendor/gems/cocoon-1.2.11')
+gem 'mini_magick'
+gem 'aws-sdk-s3', require: false
 
 # Assets
 gem 'webpacker', '3.5.5'
