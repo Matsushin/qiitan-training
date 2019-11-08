@@ -42,7 +42,8 @@ server "3.115.144.28", user: "matsushin", roles: %w{app db web}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(~/.ssh/aws/qiitan-training.pem)
+   keys: %w(qiitan-training.pem)
+   #keys: %w(~/.ssh/aws/qiitan-training.pem)
  }
 #
 # The server-based syntax can be used to override options:
