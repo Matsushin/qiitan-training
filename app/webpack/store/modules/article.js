@@ -19,7 +19,7 @@ const actions = {
 
 const mutations = {
     receiveArticles (state, data) {
-        console.log(data)
+        state.all = data;
     }
 }
 

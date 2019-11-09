@@ -14,7 +14,6 @@ import store from '../store';
 
 document.addEventListener('DOMContentLoaded', () => {
     if ($('#home-vue').length > 0) {
-        console.log('test')
         new Vue({
             el: "#home-vue",
             store,
