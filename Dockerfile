@@ -14,6 +14,7 @@ RUN apk upgrade && \
     less \
     libxml2-dev \
     libxslt-dev \
+    linux-headers \
     mysql-client \
     mysql-dev \
     nodejs \
