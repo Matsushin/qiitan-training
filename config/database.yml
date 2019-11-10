@@ -4,7 +4,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  host: <%= ENV.fetch('DB_HOST', 'db') %>
+  host: <%= ENV.fetch('DB_HOSTNAME', 'db') %>
   database: qiitan-training
   port: 3306
   timeout: 5000
