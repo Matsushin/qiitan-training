@@ -101,6 +101,15 @@ Railsトレーニングアプリ
   - その他
     - 1ページ10件取得するように。パラメータとしてpage=2の場合は2ページ目の情報が取得できるように
 
+### 課題18
+- ホーム画面をVue.jsで作ってみよう
+  - コメント内容一覧とひもづく記事タイトルを一覧で表示できるように
+    - `app/views/home/index.html.haml` に `#home-comment-vue` を追加
+    - APIを追加
+      - URLは `/api/v1/comments/` となるように
+    - `app/webpack/components/home/HomeComment.vue` を追加
+    - `app/webpack/store/modules/comment.js` を追加
+
 ## 初期設定
 
 ### インストール
