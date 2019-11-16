@@ -6,3 +6,18 @@
 
 import '../javascripts/application';
 import '../stylesheets/application';
+
+import Vue from 'vue';
+import Home from '../components/home/Home';
+
+import store from '../store';
+
+document.addEventListener('DOMContentLoaded', () => {
+    if ($('#home-vue').length > 0) {
+        new Vue({
+            el: "#home-vue",
+            store,
+            render: h => h(Home)
+        });
+    }
+});
