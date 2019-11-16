@@ -64,4 +64,9 @@ class Article < ApplicationRecord
   def created_on
     created_at.to_date
   end
+
+  def image_url
+    path = Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)
+    "http://localhost:3000#{path}"
+  end
 end
