@@ -9,6 +9,7 @@ import '../stylesheets/application';
 
 import Vue from 'vue';
 import Home from '../components/home/Home';
+import HomeComment from '../components/home/HomeComment';
 
 import store from '../store';
 
@@ -18,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             el: "#home-vue",
             store,
             render: h => h(Home)
+        });
+    }
+
+    if ($('#home-comment-vue').length > 0) {
+        new Vue({
+            el: "#home-comment-vue",
+            store,
+            render: h => h(HomeComment)
         });
     }
 });
