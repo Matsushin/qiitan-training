@@ -86,6 +86,19 @@ Railsトレーニングアプリ
   - 記事登録・編集画面からタグを複数まとめて登録できるように
     - gemのcocoonの機能を利用する
   - 登録したタグは記事一覧・詳細画面で表示する
+  
+### 課題17
+- BootstrapやAdminLTEのクラスを使って新しく記事一覧画面を作成しよう
+  - URLは「http://localhost:3000/front/articles」となるように
+  - 以下のクラスは必ず使う
+  - [AdminLTE](https://adminlte.io/themes/AdminLTE/documentation)
+    - `box`
+  - [Bootstrap3](http://bootstrap3.cyberlab.info/components)
+    - `breadcrumb`
+    - `alert`
+    - `col-md-xx`
+    - `panel`
+    - `label`
 
 ### 課題15
 - 記事一覧APIを実装してみよう

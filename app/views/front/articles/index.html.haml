@@ -1,0 +1,46 @@
+%ol.breadcrumb
+  %li
+    = link_to root_path do
+      %span.glyphicon.glyphicon-home
+      %span.breadcrumb-link ホーム
+  %li.active 記事一覧
+.alert.alert-info
+  記事一覧がリニューアルしました！
+.row
+  .col-md-7.col-md-offset-1
+    .box
+      .box-body
+        - @articles.each do |article|
+          .item-container
+            - if article.image.attached?
+              = image_tag article.image, class: 'item-image'
+            .item-body
+              %span.item-info.text-muted #{article.user.email}が#{l article.created_at.to_date}に投稿
+              %span.item-tags
+                - article.tags.each do |tag|
+                  .item-label.label.label-warning
+                    = tag.name
+              .item-title-section
+                = link_to article.title, article_path(article), class: 'item-title'
+
+            .item-status.text-muted
+              %i.fa.fa-comment-o
+              = article.comments.count
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        .text-center アカウント情報
+      .panel-body
+        .row
+          .col-md-6
+            .article__account-info.text-center
+              .article__account-count.info-box-number
+                = current_user.articles.count
+              .article__account-colmun.text-muted
+                記事
+          .col-md-6
+            .article__account-info.text-center
+              .article__account-count.info-box-number
+                = Comment.where(article: current_user.articles).count
+              .article__account-colmun.text-muted
+                コメント
