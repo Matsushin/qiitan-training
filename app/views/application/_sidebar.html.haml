@@ -8,6 +8,10 @@
         = link_to articles_path do
           %i.fa.fa-newspaper-o
           %span 記事一覧
+      %li{ class: "#{active_controller?('vue/articles')}" }
+        = link_to vue_articles_path do
+          %i.fa.fa-newspaper-o
+          %span 【Vue】記事一覧
       %li
         = link_to devise_sign_out_path do
           %i.fa.fa-sign-out
