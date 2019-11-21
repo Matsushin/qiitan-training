@@ -5,6 +5,9 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-body">
+            <div class="pull-right">
+              <a href="articles/new" class="btn btn-primary">記事を追加</a>
+            </div>
             <div v-if="articles.length > 0">
               <table class="table table-striped table-hover">
                 <thead>
