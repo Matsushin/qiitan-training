@@ -10,7 +10,7 @@ import '../stylesheets/application';
 import Vue from 'vue';
 import Home from '../components/home/Home';
 import Article from '../components/article/Article';
-import ArticleForm from '../components/article/ArticleForm';
+import NewArticleForm from '../components/article/NewArticleForm';
 
 import store from '../store';
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Vue({
             el: "#new-article-vue",
             store,
-            render: h => h(ArticleForm, {
+            render: h => h(NewArticleForm, {
                 props: {
                     userId: userId
                 }

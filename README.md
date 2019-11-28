@@ -154,7 +154,7 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
 ### 課題20
 - Vue.jsで記事登録画面を作成しよう
   - URLは「http://localhost:3000/vue/articles/new」となるように
-  - 記事詳細情報はAPIは以下URLを利用する
+  - 記事登録APIは以下URLを利用する
       - 「http://localhost:3000/api/v1/articles」
   - 以下項目を登録できるようにする
     - タイトル/本文
