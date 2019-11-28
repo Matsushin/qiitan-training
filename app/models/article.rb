@@ -66,6 +66,7 @@ class Article < ApplicationRecord
   end
 
   def image_url
+    return unless image.attached?
     path = Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)
     "http://localhost:3000#{path}"
   end
