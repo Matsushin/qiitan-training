@@ -86,19 +86,6 @@ Railsトレーニングアプリ
   - 記事登録・編集画面からタグを複数まとめて登録できるように
     - gemのcocoonの機能を利用する
   - 登録したタグは記事一覧・詳細画面で表示する
-  
-### 課題17
-- BootstrapやAdminLTEのクラスを使って新しく記事一覧画面を作成しよう
-  - URLは「http://localhost:3000/front/articles」となるように
-  - 以下のクラスは必ず使う
-  - [AdminLTE](https://adminlte.io/themes/AdminLTE/documentation)
-    - `box`
-  - [Bootstrap3](http://bootstrap3.cyberlab.info/components)
-    - `breadcrumb`
-    - `alert`
-    - `col-md-xx`
-    - `panel`
-    - `label`
 
 ### 課題15
 - 記事一覧APIを実装してみよう
@@ -142,7 +129,27 @@ http://localhost:3000/api/v1/articles/1 | jq .
 $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
 ```
  
+### 課題17
+- BootstrapやAdminLTEのクラスを使って新しく記事一覧画面を作成しよう
+  - URLは「http://localhost:3000/front/articles」となるように
+  - 以下のクラスは必ず使う
+  - [AdminLTE](https://adminlte.io/themes/AdminLTE/documentation)
+    - `box`
+  - [Bootstrap3](http://bootstrap3.cyberlab.info/components)
+    - `breadcrumb`
+    - `alert`
+    - `col-md-xx`
+    - `panel`
+    - `label`
 
+### 課題19
+- Vue.jsで記事詳細画面を作成しよう
+  - URLは「http://localhost:3000/vue/articles/:id」となるように
+  - 記事詳細情報はAPIは以下URLを利用する
+    - 「http://localhost:3000/api/v1/articles/:id」
+  - 以下項目を表示するようにする
+    - ID/タイトル/本文/作成者/画像/コメント数/タグ/作成日時/更新日時
+  - コメント一覧は表示しない
 
 ## 初期設定
 

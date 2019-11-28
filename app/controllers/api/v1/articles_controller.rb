@@ -25,7 +25,7 @@ class Api::V1::ArticlesController < Api::V1::ApplicationController
   end
 
   def show
-    render json: @article.to_json
+    render json: @article.to_json(include: [tags: { only: %i[name]}], methods: %i[author_email comment_count image_url])
   end
 
   def destroy
