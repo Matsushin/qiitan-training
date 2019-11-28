@@ -11,6 +11,7 @@ import Vue from 'vue';
 import Home from '../components/home/Home';
 import Article from '../components/article/Article';
 import NewArticleForm from '../components/article/NewArticleForm';
+import EditArticleForm from '../components/article/EditArticleForm';
 
 import store from '../store';
 
@@ -40,6 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
             render: h => h(NewArticleForm, {
                 props: {
                     userId: userId
+                }
+            })
+        });
+    }
+
+    if ($('#edit-article-vue').length > 0) {
+        const element = document.querySelector('#edit-article-vue');
+        const articleId = parseInt(element.dataset.articleId, 10);
+        new Vue({
+            el: "#edit-article-vue",
+            store,
+            render: h => h(EditArticleForm, {
+                props: {
+                    articleId: articleId
                 }
             })
         });

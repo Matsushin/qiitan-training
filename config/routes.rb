@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :vue do
-    resources :articles, only: %i(index show new)
+    resources :articles, only: %i(index show new edit)
   end
 
   namespace :api do
