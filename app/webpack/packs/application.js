@@ -10,6 +10,7 @@ import '../stylesheets/application';
 import Vue from 'vue';
 import Home from '../components/home/Home';
 import Article from '../components/article/Article';
+import NewArticleForm from '../components/article/NewArticleForm';
 
 import store from '../store';
 
@@ -27,6 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
             el: "#article-vue",
             store,
             render: h => h(Article)
+        });
+    }
+
+    if ($('#new-article-vue').length > 0) {
+        const element = document.querySelector('#new-article-vue');
+        const userId = parseInt(element.dataset.userId, 10);
+        new Vue({
+            el: "#new-article-vue",
+            store,
+            render: h => h(NewArticleForm, {
+                props: {
+                    userId: userId
+                }
+            })
         });
     }
 });

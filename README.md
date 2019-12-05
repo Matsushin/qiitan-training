@@ -151,6 +151,20 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
     - ID/タイトル/本文/作成者/画像/コメント数/タグ/作成日時/更新日時
   - コメント一覧は表示しない
 
+### 課題20
+- Vue.jsで記事登録画面を作成しよう
+  - URLは「http://localhost:3000/vue/articles/new」となるように
+  - 記事登録APIは以下URLを利用する
+      - 「http://localhost:3000/api/v1/articles」
+  - 以下項目を登録できるようにする
+    - タイトル/本文
+  - ユーザIDの取得方法
+    - `app/views/vue/articles/new.html.haml` にdata属性を利用してユーザIDをセットしてVue側に受け渡すようにする
+  - Vue.jsでのComponentとしては以下ファイルを作成する
+    - `app/webpack/components/article/NewArticleForm.vue`
+  - その他
+    - `store` は利用しないで良い
+
 ## 初期設定
 
 ### インストール
