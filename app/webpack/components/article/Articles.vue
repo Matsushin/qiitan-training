@@ -20,6 +20,7 @@
                     <th>作成日</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,9 @@
                     <td>
                       <a :href="`./articles/` + article.id">詳細</a>
                     </td>
+                    <td>
+                      <a href="#" @click="deleteArticle(article.id)">削除</a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -51,11 +55,23 @@
 </template>
 
 <script>
+import axios from 'axios';
 import articleData from '../../store/modules/article_data.js';
 export default {
   data() {
     return {
       articles: articleData.articles
+    }
+  },
+  methods: {
+    async deleteArticle (articleId) {
+      if(confirm(`記事ID:${articleId}の記事情報を本当に削除しますか？`)) {
+        const endpoint = `/api/v1/articles/${articleId}`
+        await axios.delete(endpoint, articleId)
+        const res = await axios.get('/api/v1/articles')
+        this.articles = res.data
+        this.$toasted.show('削除しました');
+      }
     }
   }
 }
