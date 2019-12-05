@@ -161,7 +161,7 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
   - ユーザIDの取得方法
     - `app/views/vue/articles/new.html.haml` にdata属性を利用してユーザIDをセットしてVue側に受け渡すようにする
   - Vue.jsでのComponentとしては以下ファイルを作成する
-    - `app/webpack/components/article/ArticleForm.vue`
+    - `app/webpack/components/article/NewArticleForm.vue`
   - その他
     - `store` は利用しないで良い
 

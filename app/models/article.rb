@@ -25,28 +25,22 @@ class Article < ApplicationRecord
   end
 
   def before_validation_test
-    p '--- before_validation ---'
     self.range_value = range_value.upcase if range_value.present?
   end
 
   def after_validation_test
-    p '--- after_validation ---'
   end
 
   def before_create_test
-    p '--- before_create ---'
   end
 
   def after_create_test
-    p '--- after_create ---'
   end
 
   def before_save_test
-    p '--- before_save ---'
   end
 
   def after_save_test
-    p '--- after_save ---'
   end
 
   def create_comment
