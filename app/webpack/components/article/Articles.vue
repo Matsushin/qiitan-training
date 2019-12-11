@@ -19,6 +19,7 @@
                     <th>コメント数</th>
                     <th>作成日</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,9 @@
                     <td>{{ article.author_email }}</td>
                     <td>{{ article.comment_count }}</td>
                     <td>{{ article.created_on }}</td>
+                    <td>
+                      <a :href="`./articles/` + article.id + `/edit`">編集</a>
+                    </td>
                     <td>
                       <a :href="`./articles/` + article.id">詳細</a>
                     </td>

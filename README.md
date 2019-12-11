@@ -165,6 +165,21 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
   - その他
     - `store` は利用しないで良い
 
+### 課題21
+- Vue.jsで記事編集画面を作成しよう
+  - URLは「http://localhost:3000/vue/articles/:article_id/edit」となるように
+  - 記事編集APIは以下URLを利用する
+      - 「http://localhost:3000/api/v1/articles/:article_id」
+  - 以下項目を更新できるようにする
+    - タイトル/本文
+  - 記事IDの取得方法
+    - `app/views/vue/articles/edit.html.haml` にdata属性を利用して記事IDをセットしてVue側に受け渡すようにする
+  - Vue.jsでのComponentとしては以下ファイルを作成する
+    - `app/webpack/components/article/EditArticleForm.vue`
+  - その他
+    - 編集処理で `store` は利用しないで良い
+ 
+
 ## 初期設定
 
 ### インストール
