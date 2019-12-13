@@ -1,18 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="errors.length"
-      class="notice-alert">
-      <div class="alert alert-danger">
-        <ul class="notice-inline">
-          <li
-            v-for="error in errors"
-            :key="error.id">
-            {{ error }}
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Errors :errors="errors" />
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <h2>記事の編集</h2>
@@ -50,8 +38,12 @@
 <script>
 import axios from 'axios';
 import { mapGetters } from 'vuex';
+import Errors from '../../components/shared/Errors'
 
 export default {
+  components: {
+    Errors
+  },
   props: {
     articleId: {
       type: Number
