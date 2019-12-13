@@ -23,9 +23,9 @@
               <dt>タグ</dt>
               <dd>{{ tagNames }}</dd>
               <dt>作成日時</dt>
-              <dd>{{ article.created_at }}</dd>
+              <dd>{{ formatDatetime(article.created_at) }}</dd>
               <dt>更新日時</dt>
-              <dd>{{ article.updated_at }}</dd>
+              <dd>{{ formatDatetime(article.updated_at) }}</dd>
             </dl>
           </div>
         </div>
@@ -36,6 +36,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import moment from 'moment';
+
 export default {
   computed: {
     ...mapGetters({
@@ -52,6 +54,11 @@ export default {
   },
   created () {
     this.$store.dispatch('fetchArticle', location.href.split('/').pop())
+  },
+  methods: {
+    formatDatetime(datetime) {
+      return moment(datetime).format("YYYY/MM/DD hh:mm:ss")
+    },
   }
 }
 </script>

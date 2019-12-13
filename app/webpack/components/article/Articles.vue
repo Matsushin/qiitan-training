@@ -17,7 +17,7 @@
                     <th>内容</th>
                     <th>作成者</th>
                     <th>コメント数</th>
-                    <th>作成日</th>
+                    <th>作成日時</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -30,7 +30,7 @@
                     <td>{{ article.short_body }}</td>
                     <td>{{ article.author_email }}</td>
                     <td>{{ article.comment_count }}</td>
-                    <td>{{ article.created_on }}</td>
+                    <td>{{ formatDatetime(article.created_at) }}</td>
                     <td>
                       <a :href="`./articles/` + article.id + `/edit`">編集</a>
                     </td>
@@ -57,6 +57,8 @@
 <script>
 import axios from 'axios';
 import articleData from '../../store/modules/article_data.js';
+import moment from 'moment';
+
 export default {
   data() {
     return {
@@ -64,6 +66,9 @@ export default {
     }
   },
   methods: {
+    formatDatetime(datetime) {
+      return moment(datetime).format("YYYY/MM/DD hh:mm:ss")
+    },
     async deleteArticle (articleId) {
       if(confirm(`記事ID:${articleId}の記事情報を本当に削除しますか？`)) {
         const endpoint = `/api/v1/articles/${articleId}`
