@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Errors from '../../components/shared/Errors'
 
 export default {
@@ -56,21 +55,19 @@ export default {
     }
   },
   methods: {
-    async handleSubmit() {
-      const endpoint = '/api/v1/articles'
+    handleSubmit() {
       const params = {
-        article: {
-          user_id: this.userId,
-          title: this.title,
-          body: this.body
-        }
+        user_id: this.userId,
+        title: this.title,
+        body: this.body
       }
-      const res = await axios.post(endpoint, params)
-      if (res.data.errors) {
-        this.errors = res.data.errors
-      } else {
-        location.href = '/vue/articles'
-      }
+      this.$store.dispatch('createArticle', params).then(() => {
+        if (this.$store.getters.article.errors.length > 0) {
+            this.errors = this.$store.getters.article.errors
+          } else {
+            location.href = '/vue/articles'
+          }
+      })
     }
   }
 }

@@ -63,14 +63,15 @@ export default {
     this.$store.dispatch('fetchArticle', this.articleId)
   },
   methods: {
-    async handleSubmit() {
-      const endpoint = `/api/v1/articles/${this.articleId}`
-      const res = await axios.patch(endpoint, this.article)
-      if (res.data.errors) {
-        this.errors = res.data.errors
-      } else {
-        location.href = '/vue/articles'
-      }
+    handleSubmit() {
+      this.article.id = this.articleId
+      this.$store.dispatch('updateArticle', this.article).then(() => {
+        if (this.$store.getters.article.errors.length > 0) {
+          this.errors = this.$store.getters.article.errors
+        } else {
+          location.href = '/vue/articles'
+        }
+      })
     }
   }
 }

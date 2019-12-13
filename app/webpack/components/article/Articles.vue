@@ -71,8 +71,7 @@ export default {
     },
     async deleteArticle (articleId) {
       if(confirm(`記事ID:${articleId}の記事情報を本当に削除しますか？`)) {
-        const endpoint = `/api/v1/articles/${articleId}`
-        await axios.delete(endpoint, articleId)
+        await this.$store.dispatch('deleteArticle', articleId);
         const res = await axios.get('/api/v1/articles')
         this.articles = res.data
         this.$toasted.show('削除しました');
