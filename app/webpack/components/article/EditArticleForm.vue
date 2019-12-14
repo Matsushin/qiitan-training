@@ -22,12 +22,11 @@
                 type="text"
               />
             </div>
-            <button
+            <submit-button
               class="btn btn-primary"
-              @click="handleSubmit"
-            >
+              @click="handleSubmit">
               更新する
-            </button>
+            </submit-button>
           </div>
         </div>
       </div>
@@ -39,10 +38,12 @@
 import axios from 'axios';
 import { mapGetters } from 'vuex';
 import Errors from '../../components/shared/Errors'
+import SubmitButton from '../../components/shared/SubmitButton'
 
 export default {
   components: {
-    Errors
+    Errors,
+    SubmitButton
   },
   props: {
     articleId: {
