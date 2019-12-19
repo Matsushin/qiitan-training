@@ -20,7 +20,7 @@ class Api::V1::ArticlesController < Api::V1::ApplicationController
     if @article.update(article_params)
       render json: @article.to_json
     else
-      render json: { errors: @article.errors.full_messages }
+      render json: { title: @article.title, body: @article.body, errors: @article.errors.full_messages }
     end
   end
 

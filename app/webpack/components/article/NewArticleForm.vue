@@ -1,18 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="errors.length"
-      class="notice-alert">
-      <div class="alert alert-danger">
-        <ul class="notice-inline">
-          <li
-            v-for="error in errors"
-            :key="error.id">
-            {{ error }}
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Errors :errors="errors" />
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <h2>記事の登録</h2>
@@ -48,8 +36,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+import Errors from '../../components/shared/Errors'
+
 export default {
+  components: {
+    Errors
+  },
   props: {
     userId: {
       type: Number
@@ -63,21 +55,19 @@ export default {
     }
   },
   methods: {
-    async handleSubmit() {
-      const endpoint = '/api/v1/articles'
+    handleSubmit() {
       const params = {
-        article: {
-          user_id: this.userId,
-          title: this.title,
-          body: this.body
-        }
+        user_id: this.userId,
+        title: this.title,
+        body: this.body
       }
-      const res = await axios.post(endpoint, params)
-      if (res.data.errors) {
-        this.errors = res.data.errors
-      } else {
-        location.href = '/vue/articles'
-      }
+      this.$store.dispatch('createArticle', params).then(() => {
+        if (this.$store.getters.article.errors.length > 0) {
+            this.errors = this.$store.getters.article.errors
+          } else {
+            location.href = '/vue/articles'
+          }
+      })
     }
   }
 }

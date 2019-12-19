@@ -1,18 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="errors.length"
-      class="notice-alert">
-      <div class="alert alert-danger">
-        <ul class="notice-inline">
-          <li
-            v-for="error in errors"
-            :key="error.id">
-            {{ error }}
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Errors :errors="errors" />
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <h2>記事の編集</h2>
@@ -50,8 +38,12 @@
 <script>
 import axios from 'axios';
 import { mapGetters } from 'vuex';
+import Errors from '../../components/shared/Errors'
 
 export default {
+  components: {
+    Errors
+  },
   props: {
     articleId: {
       type: Number
@@ -71,14 +63,15 @@ export default {
     this.$store.dispatch('fetchArticle', this.articleId)
   },
   methods: {
-    async handleSubmit() {
-      const endpoint = `/api/v1/articles/${this.articleId}`
-      const res = await axios.patch(endpoint, this.article)
-      if (res.data.errors) {
-        this.errors = res.data.errors
-      } else {
-        location.href = '/vue/articles'
-      }
+    handleSubmit() {
+      this.article.id = this.articleId
+      this.$store.dispatch('updateArticle', this.article).then(() => {
+        if (this.$store.getters.article.errors.length > 0) {
+          this.errors = this.$store.getters.article.errors
+        } else {
+          location.href = '/vue/articles'
+        }
+      })
     }
   }
 }

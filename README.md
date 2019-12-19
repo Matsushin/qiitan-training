@@ -193,6 +193,17 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
     - 画面の表示を更新後に `vue-toasted` を使ってトースト表示させる
       - 文言は「削除しました」
 
+### 課題23
+- エラー表示のコンポーネント化しよう
+  - 「components/shared/Errors.vue」
+  - 「NewArticleForm」と「EditArticleForm」で共通化したコンポーネントを使うように
+- momentを使って記事一覧画面の作成日の表示形式を変更しよう
+  - 2019-11-01 -> 2019/11/01 09:34:46 
+  - created_onではなくcreated_atを利用する
+  - [参考](https://qiita.com/Sa2Knight/items/092a764679f960de81c9)
+- ストアを利用しよう
+  - 登録・更新・削除
+
 ## 初期設定
 
 ### インストール
