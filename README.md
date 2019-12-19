@@ -179,6 +179,19 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
   - その他
     - 編集処理で `store` は利用しないで良い
  
+### 課題22
+- Vue.jsで記事一覧画面から記事を削除できるようにしよう
+  - 記事削除APIは以下URLを利用する
+      - 「http://localhost:3000/api/v1/articles/:article_id」
+  - 記事IDの取得方法
+    - `app/views/vue/articles/edit.html.haml` にdata属性を利用して記事IDをセットしてVue側に受け渡すようにする
+  - Vue.jsでのComponentは以下ファイルを更新する
+    - `app/webpack/components/article/Articles.vue`
+  - その他
+    - 削除処理で `store` は利用しないで良い 
+    - 削除が成功したらAPIを利用して一覧情報を取得して画面の表示を更新する。画面遷移はなし。
+    - 画面の表示を更新後に `vue-toasted` を使ってトースト表示させる
+      - 文言は「削除しました」
 
 ## 初期設定
 
