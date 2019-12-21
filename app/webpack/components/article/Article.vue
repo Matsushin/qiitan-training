@@ -27,6 +27,7 @@
               <dt>更新日時</dt>
               <dd>{{ formatDatetime(article.updated_at) }}</dd>
             </dl>
+            <a :href="`./${article.id}/comments`">コメント一覧を見る</a>
           </div>
         </div>
       </div>

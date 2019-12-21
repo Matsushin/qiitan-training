@@ -211,6 +211,18 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
   - 「$emit」使ってしてボタン押下時の処理はそれぞれ親コンポーネントに書く
   - 「slot」を使ってボタンの文言(登録する/更新する)は親コンポーネントに書く
 
+### 課題25
+- Vue Router(ルーティング)を使ってコメント一覧と登録画面を作ろう
+  - URLはそれぞれ以下のように
+    - コメント一覧
+      - 「http://localhost:3000/vue/articles/:article_id/comments#/」
+    - コメント登録
+      - 「http://localhost:3000/vue/articles/:article_id/comments#/new」
+  - 「CommentTop.vue」「Comments.vue」「NewCommentForm.vue」
+  - 記事IDはビューにセットしてJSで取り出して使うように
+  - コメント一覧と登録はストアを利用するように
+  - 登録時にトースト表示されるように
+
 ## 初期設定
 
 ### インストール

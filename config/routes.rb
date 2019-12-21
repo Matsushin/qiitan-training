@@ -15,12 +15,16 @@ Rails.application.routes.draw do
   end
 
   namespace :vue do
-    resources :articles, only: %i(index show new edit)
+    resources :articles, only: %i(index show new edit) do
+      resources :comments, only: %i(index new)
+    end
   end
 
   namespace :api do
     namespace :v1 do
-      resources :articles
+      resources :articles do
+        resources :comments, only: %i(index create)
+      end
     end
   end
 end
