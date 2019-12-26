@@ -204,6 +204,13 @@ $ curl -X DELETE http://localhost:3000/api/v1/articles/1 | jq .
 - ストアを利用しよう
   - 登録・更新・削除
 
+### 課題24
+- フォームのサブミットボタンをコンポーネント化しよう
+  - 「components/shared/SubmitButton.vue」
+  - 「NewArticleForm」と「EditArticleForm」で共通化したコンポーネントを使うように
+  - 「$emit」使ってしてボタン押下時の処理はそれぞれ親コンポーネントに書く
+  - 「slot」を使ってボタンの文言(登録する/更新する)は親コンポーネントに書く
+
 ## 初期設定
 
 ### インストール

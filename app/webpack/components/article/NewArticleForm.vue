@@ -22,12 +22,11 @@
                 type="text"
               />
             </div>
-            <button
+            <submit-button
               class="btn btn-primary"
-              @click="handleSubmit"
-            >
+              @click="handleSubmit">
               登録する
-            </button>
+            </submit-button>
           </div>
         </div>
       </div>
@@ -37,10 +36,12 @@
 
 <script>
 import Errors from '../../components/shared/Errors'
+import SubmitButton from '../../components/shared/SubmitButton'
 
 export default {
   components: {
-    Errors
+    Errors,
+    SubmitButton
   },
   props: {
     userId: {
