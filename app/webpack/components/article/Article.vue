@@ -16,7 +16,9 @@
               <dd>{{ article.author_email }}</dd>
               <dt>画像</dt>
               <dd>
-                <img v-bind:src='article.image_url'>
+                <image-viewer>
+                  <img v-bind:src='article.image_url' class="article-image">
+                </image-viewer>
               </dd>
               <dt>コメント数</dt>
               <dd>{{ article.comment_count }}</dd>
@@ -38,8 +40,12 @@
 <script>
 import { mapGetters } from 'vuex';
 import moment from 'moment';
+import ImageViewer from '../viewerjs/ImageViewer';
 
 export default {
+  components: {
+    ImageViewer
+  },
   computed: {
     ...mapGetters({
       article: 'article',

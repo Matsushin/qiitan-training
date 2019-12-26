@@ -9,6 +9,8 @@ class Vue::ArticlesController < ApplicationController
 
   def new; end
 
+  def edit; end
+
   private
 
   def set_article
