@@ -13,7 +13,7 @@ class Article < ApplicationRecord
 
   has_one_attached :image
 
-  before_validation :before_validation_test
+  before_validation :before_validation_test, :downcase_str_value
   after_validation :after_validation_test
   before_create :before_create_test
   after_create :after_create_test, :create_comment
@@ -44,7 +44,11 @@ class Article < ApplicationRecord
   end
 
   def create_comment
-    # TODO: ここでコメントレコードを作る
+    comments.create!(body: '記事コメント')
+  end
+
+  def downcase_str_value
+    self.str_value = str_value.downcase
   end
 
   def short_body
