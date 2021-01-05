@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.4",
     "admin-lte": "^2.4.10",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "caniuse-lite": "^1.0.30001008",
     "css-loader": "^0.28.11",
     "import-glob-loader": "^1.1.0",
